@@ -32,7 +32,7 @@
             android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            app:navigationIcon="@mipmap/ic_reorder_black_24dp"
             >
         </android.support.v7.widget.Toolbar>
 

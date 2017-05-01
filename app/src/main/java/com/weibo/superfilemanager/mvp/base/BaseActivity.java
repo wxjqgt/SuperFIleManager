@@ -18,8 +18,6 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
-        initView();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -27,7 +25,9 @@ public abstract class BaseActivity extends RxAppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             StatusBarCompat.compat(this);
         }
-
+        setContentView(getLayoutId());
+        initView();
+        listener();
     }
 
     @Override
@@ -37,6 +37,9 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     }
 
     protected abstract int getLayoutId();
+
+    protected void listener() {
+    }
 
     protected void initView() {
     }
