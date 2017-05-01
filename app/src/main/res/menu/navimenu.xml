@@ -5,18 +5,22 @@
     <item
         android:id="@+id/musicItem"
         android:title="Music"
+        android:icon="@mipmap/ic_music_note_black_24dp"
         ></item>
     <item
         android:id="@+id/vdeoItem"
         android:title="Video"
+        android:icon="@mipmap/ic_videocam_black_24dp"
         ></item>
     <item
         android:id="@+id/DocItem"
         android:title="Doc"
+        android:icon="@mipmap/doc"
         ></item>
     <item
         android:id="@+id/apkItem"
         android:title="Apk"
+        android:icon="@mipmap/ic_apps_black_24dp"
         ></item>
 
 </menu>

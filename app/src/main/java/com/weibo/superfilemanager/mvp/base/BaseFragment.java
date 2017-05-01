@@ -1,4 +1,4 @@
-package com.weibo.superfilemanager.view;
+package com.weibo.superfilemanager.mvp.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
