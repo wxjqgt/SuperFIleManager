@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/musicItem"
+        android:title="Music"
+        ></item>
+    <item
+        android:id="@+id/vdeoItem"
+        android:title="Video"
+        ></item>
+    <item
+        android:id="@+id/DocItem"
+        android:title="Doc"
+        ></item>
+    <item
+        android:id="@+id/apkItem"
+        android:title="Apk"
+        ></item>
+
+</menu>
