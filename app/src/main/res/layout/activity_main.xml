@@ -17,15 +17,15 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/headlayout"
         app:menu="@menu/navimenu"
+        app:itemBackground="?android:attr/selectableItemBackground"
         ></android.support.design.widget.NavigationView>
 
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:clipToPadding="true"
         android:fitsSystemWindows="true"
-        android:orientation="vertical"
         >
 
         <android.support.v7.widget.Toolbar
@@ -36,12 +36,13 @@
             >
         </android.support.v7.widget.Toolbar>
 
-        <FrameLayout
-            android:id="@+id/mainFrame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            ></FrameLayout>
-
     </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:background="@android:color/white"
+        android:id="@+id/mainFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></FrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

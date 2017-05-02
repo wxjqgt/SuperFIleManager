@@ -1,7 +1,6 @@
 package com.weibo.superfilemanager.app;
 
 import android.app.Application;
-
 import com.orhanobut.logger.Logger;
 
 /**
@@ -9,6 +8,7 @@ import com.orhanobut.logger.Logger;
  */
 
 public class FileManagerApp extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
