@@ -1,5 +1,6 @@
 package com.weibo.superfilemanager.mvp.view.activity;
 
+import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import com.jakewharton.rxbinding2.support.design.widget.RxNavigationView;
 import com.jakewharton.rxbinding2.support.v7.widget.RxToolbar;
-import com.orhanobut.logger.Logger;
 import com.weibo.superfilemanager.R;
 import com.weibo.superfilemanager.mvp.base.BaseActivity;
 import com.weibo.superfilemanager.mvp.base.BasePresenter;
@@ -66,36 +66,32 @@ public class MainActivity extends BaseActivity implements MainActivityContract.M
         });
 
     fm = getSupportFragmentManager();
-    //需要单独在menu文件中设置checkable=true,否则点击事件不起作用
+    //NavigationView一定要在布局的最后，否则监听不起作用，这是个惨痛的教训
     RxNavigationView.itemSelections(nav_main)
         .compose(this.<MenuItem>bindToLifecycle())
         .subscribe(new Consumer<MenuItem>() {
           @Override public void accept(@NonNull MenuItem menuItem) throws Exception {
-            Logger.d("ddddddddddd");
             fragment(menuItem.getItemId(), menuItem.getTitle().toString());
+            drawwelayout_main.closeDrawer(Gravity.START);
           }
         });
-    nav_main.setCheckedItem(R.id.musicItem);
   }
 
-  private void fragment(int itemId, String tag) {
+  private void fragment(@IdRes int itemId, String tag) {
     if (lastFragment != null) {
       fm.beginTransaction().hide(lastFragment).commit();
     }
     Fragment fragment = fm.findFragmentByTag(tag);
     if (fragment == null) {
       fragment = createFragment(itemId);
-      if (fragment == null) {
-        return;
-      }
-      fm.beginTransaction().addToBackStack(tag).add(R.id.mainFrame, fragment, tag).commit();
+      fm.beginTransaction().add(R.id.mainFrame, fragment, tag).addToBackStack(tag).commit();
     } else {
       fm.beginTransaction().show(fragment).commit();
     }
     lastFragment = fragment;
   }
 
-  private Fragment createFragment(int itemId) {
+  private Fragment createFragment(@IdRes int itemId) {
     Fragment fragment = null;
     switch (itemId) {
       case R.id.vdeoItem:
