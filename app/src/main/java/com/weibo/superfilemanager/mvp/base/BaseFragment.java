@@ -16,15 +16,14 @@ public abstract class BaseFragment extends RxFragment {
 
     private View view;
 
-    public BaseFragment() {
-    }
-
+    public BaseFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(getLayoutId(), container, false);
         initView();
+        listener();
         return view;
     }
 
@@ -49,6 +48,8 @@ public abstract class BaseFragment extends RxFragment {
 
     protected void loadData() {
     }
+
+    protected void listener(){}
 
     protected abstract int getLayoutId();
 
