@@ -16,16 +16,16 @@ public class MusicFragment extends BaseFragment implements MusicFragmentContract
 
   private RecyclerView mRecyclerView_music;
 
-  @Override protected void initView() {
-    mRecyclerView_music = findView(R.id.musicRecyclerView);
+  public MusicFragment() {
+    new MusicFragmentPresenterImp(this);
   }
 
   @Override protected void loadData() {
     mMusicFragmentPresenter.onStart();
   }
 
-  public MusicFragment() {
-    new MusicFragmentPresenterImp(this);
+  @Override protected void initView() {
+    mRecyclerView_music = findView(R.id.musicRecyclerView);
   }
 
   @Override public void onAttach(Context context) {
