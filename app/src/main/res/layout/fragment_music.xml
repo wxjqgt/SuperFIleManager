@@ -4,11 +4,19 @@
     android:layout_height="match_parent"
     tools:context="com.weibo.superfilemanager.mvp.view.fragment.VideoFragment"
     >
-
-  <android.support.v7.widget.RecyclerView
+  <android.support.v4.widget.SwipeRefreshLayout
+      android:id="@+id/swipeRefreshLayout_music"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:id="@+id/musicRecyclerView"
-      ></android.support.v7.widget.RecyclerView>
+      >
+
+    <android.support.v7.widget.RecyclerView
+        android:padding="3dp"
+        android:id="@+id/musicRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></android.support.v7.widget.RecyclerView>
+
+  </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>

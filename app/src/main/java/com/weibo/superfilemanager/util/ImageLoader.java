@@ -1,6 +1,7 @@
 package com.weibo.superfilemanager.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
@@ -13,6 +14,10 @@ public final class ImageLoader {
 
   public static void load(Activity activity, int res, int errorRes, ImageView imageView) {
     with(activity).load(res).error(errorRes).into(imageView);
+  }
+
+  public static void load(Context context, String url, int errorRes, ImageView imageView) {
+    with(context).load(url).error(errorRes).into(imageView);
   }
 
   public static void load(Activity activity, String url, int errorRes, ImageView imageView) {
