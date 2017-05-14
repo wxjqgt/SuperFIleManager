@@ -15,29 +15,25 @@ import org.json.JSONObject;
 
 public class MainActivityPresenterImp implements MainActivityContract.MainActivityPresenter {
 
-    private MainActivityContract.MainActivityView view;
+  private MainActivityContract.MainActivityView view;
 
-    public MainActivityPresenterImp(MainActivityContract.MainActivityView view) {
-        this.view = view;
-        view.setPresenter(this);
-    }
+  public MainActivityPresenterImp(MainActivityContract.MainActivityView view) {
+    this.view = view;
+    view.setPresenter(this);
+  }
 
-    @Override
-    public void onStart() {
-        VolleyGo.get()
-                .url(UrlConstant.IMAGE_URL)
-                .callback(new HttpCallback() {
-                    @Override
-                    public void onSuccess(String t) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(t);
-                            JSONArray array = jsonObject.getJSONArray("results");
-                            String imagUrl = array.getJSONObject(0).getString("url");
-                            view.loadNavHeadView(imagUrl);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).doTask();
-    }
+  @Override public void onStart() {
+    VolleyGo.get().url(UrlConstant.IMAGE_URL).callback(new HttpCallback() {
+      @Override public void onSuccess(String t) {
+        try {
+          JSONObject jsonObject = new JSONObject(t);
+          JSONArray array = jsonObject.getJSONArray("results");
+          String imagUrl = array.getJSONObject(0).getString("url");
+          view.loadNavHeadView(imagUrl);
+        } catch (JSONException e) {
+          e.printStackTrace();
+        }
+      }
+    }).doTask();
+  }
 }

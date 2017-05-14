@@ -123,4 +123,9 @@ public class MainActivity extends BaseActivity implements MainActivityContract.M
   @Override public void setPresenter(BasePresenter presenter) {
     mainActivityPresenter = (MainActivityContract.MainActivityPresenter) presenter;
   }
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+    mainActivityPresenter = null;
+  }
 }

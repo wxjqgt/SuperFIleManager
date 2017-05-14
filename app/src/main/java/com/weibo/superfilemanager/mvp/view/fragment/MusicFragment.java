@@ -66,4 +66,9 @@ public class MusicFragment extends BaseFragment implements MusicFragmentContract
   @Override public void setPresenter(BasePresenter presenter) {
     mMusicFragmentPresenter = (MusicFragmentContract.MusicFragmentPresenter) presenter;
   }
+
+  @Override public void onDestroy() {
+    super.onDestroy();
+    mMusicFragmentPresenter = null;
+  }
 }
