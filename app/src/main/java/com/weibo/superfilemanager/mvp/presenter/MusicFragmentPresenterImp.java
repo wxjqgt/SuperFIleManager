@@ -16,6 +16,6 @@ public class MusicFragmentPresenterImp implements MusicFragmentContract.MusicFra
   }
 
   @Override public void onStart() {
-
+    
   }
 }

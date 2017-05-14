@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
-
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.weibo.superfilemanager.util.StatusBarCompat;
 

@@ -8,8 +8,8 @@
       >
 
     <item
-        android:checked="true"
         android:id="@+id/musicItem"
+        android:checked="true"
         android:icon="@mipmap/ic_music_note_black_24dp"
         android:title="Music"
         ></item>
@@ -30,5 +30,16 @@
         ></item>
 
   </group>
+
+  <item android:title="快捷功能">
+    <menu>
+      <group>
+        <item
+            android:id="@+id/searchItem"
+            android:icon="@mipmap/ic_search_black_24dp"
+            android:title="search"></item>
+      </group>
+    </menu>
+  </item>
 
 </menu>

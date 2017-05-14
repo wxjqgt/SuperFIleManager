@@ -19,6 +19,7 @@ import com.weibo.superfilemanager.mvp.presenter.MainActivityPresenterImp;
 import com.weibo.superfilemanager.mvp.view.fragment.ApkFragment;
 import com.weibo.superfilemanager.mvp.view.fragment.DocFragment;
 import com.weibo.superfilemanager.mvp.view.fragment.MusicFragment;
+import com.weibo.superfilemanager.mvp.view.fragment.SearchFragment;
 import com.weibo.superfilemanager.mvp.view.fragment.VideoFragment;
 import com.weibo.superfilemanager.util.ImageLoader;
 import com.weibo.superfilemanager.util.StatusBarCompat;
@@ -43,14 +44,14 @@ public class MainActivity extends BaseActivity implements MainActivityContract.M
 
   @Override public void loadNavHeadView(String imageUrl) {
     ImageView imageView = ViewUtil.findView(nav_main.getHeaderView(0), R.id.headImage);
-    ImageLoader.load(MainActivity.this, imageUrl, R.mipmap.head_image, imageView);
+    ImageLoader.load(this, imageUrl, R.mipmap.head_image, imageView);
   }
 
   @Override protected void initView() {
     nav_main = findView(R.id.nav_main);
     drawwelayout_main = findView(R.id.main_drawerLayout);
-
     toolbar_main = findView(R.id.toolbar_main);
+
     toolbar_main.setPadding(0, StatusBarCompat.getStatusBarHeight(this) / 2, 0, 0);
   }
 
@@ -105,6 +106,9 @@ public class MainActivity extends BaseActivity implements MainActivityContract.M
         break;
       case R.id.apkItem:
         fragment = ApkFragment.newInstance();
+        break;
+      case R.id.searchItem:
+        fragment = SearchFragment.newInstance();
         break;
       default:
         break;

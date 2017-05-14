@@ -6,6 +6,7 @@
     android:id="@+id/main_drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:transitionName="drawer"
     tools:context=".mvp.view.activity.MainActivity"
     >
 
@@ -21,15 +22,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@mipmap/ic_reorder_black_24dp"
+        app:title="SuperFileManager"
         >
+
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
-        android:padding="5dp"
         android:id="@+id/mainFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
+        android:padding="5dp"
         ></FrameLayout>
 
   </android.support.design.widget.AppBarLayout>

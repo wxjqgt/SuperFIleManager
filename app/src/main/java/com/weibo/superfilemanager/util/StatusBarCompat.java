@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * Created by weibo on 17-5-1.
  */
 
-public class StatusBarCompat {
+public final class StatusBarCompat {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");

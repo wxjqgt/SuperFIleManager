@@ -2,8 +2,12 @@ package com.weibo.superfilemanager.mvp.view.fragment;
 
 import com.weibo.superfilemanager.R;
 import com.weibo.superfilemanager.mvp.base.BaseFragment;
+import com.weibo.superfilemanager.mvp.base.BasePresenter;
+import com.weibo.superfilemanager.mvp.contract.VideoFragmentContract;
 
-public class VideoFragment extends BaseFragment{
+public class VideoFragment extends BaseFragment implements VideoFragmentContract.VideoFragmentView {
+
+  private VideoFragmentContract.VideoFragmentPresenter mVideoFragmentPresenter;
 
   public VideoFragment() {
     // Required empty public constructor
@@ -18,4 +22,7 @@ public class VideoFragment extends BaseFragment{
     return fragment;
   }
 
+  @Override public void setPresenter(BasePresenter presenter) {
+    mVideoFragmentPresenter = (VideoFragmentContract.VideoFragmentPresenter) presenter;
+  }
 }
