@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 /**
  * Created by Administrator on 2016/7/15.
  */
-public abstract class OnRecyclerViewItemClickListener implements RecyclerView.OnItemTouchListener{
+public class OnRecyclerViewItemClickListener implements RecyclerView.OnItemTouchListener{
 
     private RecyclerView recyclerView;
     private GestureDetectorCompat gestureDetectorCompat;
@@ -38,7 +38,7 @@ public abstract class OnRecyclerViewItemClickListener implements RecyclerView.On
 
     }
 
-    public abstract void OnItemClickLitener(RecyclerView.ViewHolder viewHolder);
-    public abstract void OnItemLongClickLitener(RecyclerView.ViewHolder viewHolder);
+    public void onItemClickLitener(RecyclerView.ViewHolder viewHolder){}
+    public void onItemLongClickLitener(RecyclerView.ViewHolder viewHolder){}
 
 }

@@ -17,19 +17,12 @@
     <activity
         android:name=".mvp.view.activity.MainActivity"
         android:configChanges="keyboardHidden|orientation|screenSize"
-        android:launchMode="singleTop"
-        >
+        android:launchMode="singleTop">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
-    </activity>
-    <activity
-        android:name=".mvp.view.activity.SearchActivity"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:launchMode="singleTask"
-        >
     </activity>
   </application>
 

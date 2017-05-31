@@ -9,8 +9,15 @@ public class VideoFragment extends BaseFragment implements VideoFragmentContract
 
   private VideoFragmentContract.VideoFragmentPresenter mVideoFragmentPresenter;
 
+  @Override protected void loadData() {
+    mVideoFragmentPresenter.onStart();
+  }
+
+  @Override protected void initView() {
+
+  }
+
   public VideoFragment() {
-    // Required empty public constructor
   }
 
   @Override protected int getLayoutId() {

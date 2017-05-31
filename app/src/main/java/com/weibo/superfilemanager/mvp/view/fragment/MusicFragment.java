@@ -1,8 +1,11 @@
 package com.weibo.superfilemanager.mvp.view.fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import com.nispok.snackbar.Snackbar;
 import com.weibo.superfilemanager.R;
 import com.weibo.superfilemanager.mvp.base.BaseFragment;
 import com.weibo.superfilemanager.mvp.base.BasePresenter;
@@ -11,6 +14,7 @@ import com.weibo.superfilemanager.mvp.model.Mp3Info;
 import com.weibo.superfilemanager.mvp.presenter.MusicFragmentPresenterImp;
 import com.weibo.superfilemanager.mvp.view.activity.MainActivity;
 import com.weibo.superfilemanager.mvp.view.recyclerView.CommonAdapter;
+import com.weibo.superfilemanager.mvp.view.recyclerView.OnRecyclerViewItemClickListener;
 import com.weibo.superfilemanager.mvp.view.recyclerView.ViewHolder;
 import java.util.List;
 
@@ -20,6 +24,8 @@ public class MusicFragment extends BaseFragment implements MusicFragmentContract
   private MainActivity mMainActivity;
 
   private RecyclerView mRecyclerView_music;
+
+  private List<Mp3Info> mMp3Infos = null;
 
   public MusicFragment() {
     new MusicFragmentPresenterImp(this);
@@ -35,14 +41,33 @@ public class MusicFragment extends BaseFragment implements MusicFragmentContract
             mp3Infos) {
           @Override public void convert(ViewHolder holder, Mp3Info mp3Info, int position) {
             holder.setText(R.id.tv_mp3Name, mp3Info.getTitle());
-            holder.setText(R.id.tv_mp3Path, mp3Info.getUrl());
           }
         };
     mRecyclerView_music.setLayoutManager(new LinearLayoutManager(mMainActivity));
     mRecyclerView_music.setAdapter(adapter);
+    this.mMp3Infos = mp3Infos;
   }
 
   @Override protected void listener() {
+    mRecyclerView_music.addOnItemTouchListener(
+        new OnRecyclerViewItemClickListener(mRecyclerView_music) {
+          @Override public void onItemClickLitener(RecyclerView.ViewHolder viewHolder) {
+            final Mp3Info mp3Info = mMp3Infos.get(viewHolder.getAdapterPosition());
+            AlertDialog alertDialog = new AlertDialog.Builder(mMainActivity).setCancelable(true)
+                .setIcon(R.mipmap.ic_music_note_black_24dp)
+                .setTitle("Music Message detail")
+                .setMessage("Path = " + mp3Info.getUrl())
+                .setNeutralButton("exit", new DialogInterface.OnClickListener() {
+                  @Override public void onClick(DialogInterface dialog, int which) {
+                    Snackbar.with(mMainActivity)
+                        .text("exit!")
+                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                        .show(mMainActivity);
+                  }
+                })
+                .show();
+          }
+        });
   }
 
   @Override protected void initView() {

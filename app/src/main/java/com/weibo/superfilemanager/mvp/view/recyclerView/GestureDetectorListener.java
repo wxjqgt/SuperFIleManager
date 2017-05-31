@@ -21,13 +21,13 @@ public class GestureDetectorListener extends GestureDetector.SimpleOnGestureList
     @Override
     public void onLongPress(MotionEvent e) {
         RecyclerView.ViewHolder viewHolder = getViewHolder(e);
-        listener.OnItemLongClickLitener(viewHolder);
+        listener.onItemLongClickLitener(viewHolder);
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
         RecyclerView.ViewHolder viewHolder = getViewHolder(e);
-        listener.OnItemClickLitener(viewHolder);
+        listener.onItemClickLitener(viewHolder);
         return true;
     }
 
