@@ -27,6 +27,9 @@ import com.weibo.superfilemanager.util.ViewUtil;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
+/**
+ *  create by weidashuai 20170605
+ */
 public class MainActivity extends BaseActivity implements MainActivityContract.MainActivityView {
 
   private NavigationView nav_main;
